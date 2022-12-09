@@ -9,6 +9,7 @@ import Chart from "../views/ChartView.vue";
 import Card from "../views/CardView.vue";
 import Blank from "../views/BlankView.vue";
 import NotFound from "../views/NotFound.vue";
+import CardViewVue from "../views/CardView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -23,9 +24,9 @@ const routes: Array<RouteRecordRaw> = [
     component: Dashboard,
   },
   {
-    path: "/forms",
-    name: "Forms",
-    component: Forms,
+    path: "/stocks",
+    name: "Stocks",
+    component: CardViewVue,
   },
   {
     path: "/cards",

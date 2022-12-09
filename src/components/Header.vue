@@ -31,7 +31,7 @@
         </svg>
       </button>
 
-      <div class="relative mx-4 lg:mx-0">
+      <!-- <div class="relative mx-4 lg:mx-0">
         <span class="absolute inset-y-0 left-0 flex items-center pl-3">
           <svg class="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none">
             <path
@@ -62,11 +62,11 @@
           type="text"
           placeholder="Search"
         />
-      </div>
+      </div> -->
     </div>
 
     <div class="flex items-center">
-      <div class="flex items-center">
+      <!-- <div class="flex items-center">
         <div class="relative">
           <button
             @click="notificationOpen = !notificationOpen"
@@ -206,14 +206,17 @@
             </a>
           </div>
         </div>
-      </div>
-      <div class="relative">
+      </div> -->
+      <div class="relative flex items-center">
+        <h1>Umit Tengiz</h1>
         <button
           @click="dropdownOpen = !dropdownOpen"
           class="
             relative
+            flex
+            justify-center
+            items-center
             z-10
-            block
             w-8
             h-8
             overflow-hidden
@@ -222,11 +225,10 @@
             focus:outline-none
           "
         >
-          <img
-            class="object-cover w-full h-full"
-            src="https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=296&q=80"
-            alt="Your avatar"
-          />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+</svg>
+
         </button>
 
         <div
@@ -235,7 +237,7 @@
           class="fixed inset-0 z-10 w-full h-full"
         ></div>
 
-        <transition
+        <!-- <transition
           enter-active-class="transition duration-150 ease-out transform"
           enter-from-class="scale-95 opacity-0"
           enter-to-class="scale-100 opacity-100"
@@ -344,7 +346,7 @@
               Log out</router-link
             >
           </div>
-        </transition>
+        </transition> -->
       </div>
     </div>
   </header>

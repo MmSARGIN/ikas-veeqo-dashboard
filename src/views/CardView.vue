@@ -1,92 +1,74 @@
-<template>
-  <div>
-    <!-- Breadcrumb -->
-    <Breadcrumb breadcrumb="Cards" />
-    <div class="mt-4 mb-3">
-      <h4 class="text-gray-700">Stacked</h4>
+d<template>
+  <div class="h-screen">
+    <div class="">
+      <div class="flex ">
+        <div class="w-4/12"></div>
+        <div class="w-4/12 font-semibold flex justify-center items-center text-4xl text-indigo-600">
+          Bulk Updates Stocks
+        </div>
+        <div class="w-4/12 flex justify-center items-center p-4">
+            <button @click="updateAllStocks" class="px-6 py-4 flex  justify-evenly  hover:bg-red-700 bg-red-600 rounded-xl text-xl text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mr-3">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+</svg>
 
-      <div class="max-w-sm mt-6 overflow-hidden bg-white rounded shadow-lg">
-        <img
-          class="w-full"
-          src="https://picsum.photos/id/1016/384/234"
-          alt="Sunset in the mountains"
-        />
-        <div class="px-6 py-4">
-          <div class="mb-2 text-xl font-bold text-gray-900">
-            The Coldest Sunset
-          </div>
-          <p class="text-base text-gray-700">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Voluptatibus quia, nulla! Maiores et perferendis eaque,
-            exercitationem praesentium nihil.
-          </p>
+
+  Update All Stocks</button>
         </div>
-        <div class="px-6 pt-4 pb-2">
-          <span
-            class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full"
-            >#photography</span
-          >
-          <span
-            class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full"
-            >#travel</span
-          >
-          <span
-            class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full"
-            >#winter</span
-          >
-        </div>
+       
+       
       </div>
-    </div>
-    <hr />
-    <div class="mt-5">
-      <h4 class="text-gray-700">Horizontal</h4>
-      <div class="w-full max-w-sm mt-6 lg:max-w-full lg:flex">
-        <div
-          class="flex-none h-48 overflow-hidden text-center bg-cover rounded-t lg:h-auto lg:w-48 lg:rounded-t-none lg:rounded-l"
-          style="background-image: url('https://picsum.photos/id/0/192/213')"
-          title="Woman holding a mug"
-        ></div>
-        <div
-          class="flex flex-col justify-between p-4 leading-normal bg-white border-b border-l border-r border-gray-200 rounded-b lg:border-l-0 lg:border-t lg:border-gray-200 lg:rounded-b-none lg:rounded-r"
-        >
-          <div class="mb-8">
-            <p class="flex items-center text-sm text-gray-600">
-              <svg
-                class="w-3 h-3 mr-2 text-gray-500 fill-current"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z"
-                />
-              </svg>
-              Members only
-            </p>
-            <div class="mb-2 text-xl font-bold text-gray-900">
-              Can coffee make you a better developer?
-            </div>
-            <p class="text-base text-gray-700">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatibus quia, nulla! Maiores et perferendis eaque,
-              exercitationem praesentium nihil.
-            </p>
-          </div>
-          <div class="flex items-center">
-            <img
-              class="w-10 h-10 mr-4 rounded-full"
-              src="https://via.placeholder.com/50"
-              alt="Avatar of Jonathan Reinink"
-            />
-            <div class="text-sm">
-              <p class="leading-none text-gray-900">Jonathan Reinink</p>
-              <p class="text-gray-600">Aug 18</p>
-            </div>
-          </div>
+
+      <div class="teal-500 flex flex-col justify-center items-center">
+        <div>
+          <textarea
+            class="rounded-2xl p-6 text-2xl outline-indigo-600"
+            cols="100"
+            rows="10"
+          ></textarea>
+        </div>
+        <div class="w-1/3 flex mt-6 justify-end items-center">
+          <button
+            class="px-6 py-4 flex justify-evenly items-center w-full hover:bg-indigo-700 bg-indigo-600 rounded-xl text-3xl text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-12 h-12"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+              />
+            </svg>
+            Update Selected
+          </button>
+          <!-- <button class=" px-6 py-4 flex  justify-evenly w-1/3 hover:bg-indigo-700 bg-indigo-600 rounded-xl text-xl text-white">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+</svg>
+  Update All Stocks</button> -->
         </div>
       </div>
     </div>
   </div>
 </template>
-<script lang="ts" setup>
-import Breadcrumb from '../partials/Breadcrumb.vue'
+
+<script>
+export default {
+  data(){
+    return{
+      
+    }
+  },
+  methods: {
+    updateAllStocks(){
+      confirm('Are you sure that ??? You can`t turn back !!!')
+    }
+  }
+}
 </script>
