@@ -89,6 +89,7 @@
         <div class="mt-6">
           <button
             type="submit"
+            @click="handleSubmit(email, password)"
             class="
               w-full
               px-4
@@ -108,15 +109,65 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref } from "vue";
+<script setup>
 import { useRouter } from "vue-router";
+import axios from 'axios';
 
 const router = useRouter();
-const email = ref("johndoe@mail.com");
-const password = ref("@#!@#asdf1231!_!@#");
 
-function login() {
-  router.push("/dashboard");
-}
+const handleSubmit = (email, password) => {
+  const payload = {
+    email: email,
+    password: password
+  }
+  const API_URL='http://sirri.fthyuksel.com/api/v1'
+  console.log(API_URL)
+
+  const url = API_URL + "/login";
+  const options = {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json;charset=UTF-8",
+    },
+    body: JSON.stringify(payload),
+  };
+  fetch(url, options)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log('data fetch: ', data?.data?.access_token);
+    const token = data?.data?.access_token;
+    console.log('token: ', token)
+    if (token) {
+      localStorage.setItem("token", token);
+      // axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      console.log('Logged in.');
+    } else {
+      // delete axios.defaults.headers.common["Authorization"];
+      console.log('Invalid email or password.');
+    }
+    router.push("/dashboard");
+  });
+
+  // axios.post(API_URL + "/login", payload, {withCredentials: true})
+  // .then(response => {
+  //   console.log('request sent.')
+  //   console.log('response: ', response)
+  //   const token  = response.data.access_token;
+  //   console.log('token: ', token)
+  //   if (token) {
+  //     localStorage.setItem("token", token);
+  //     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  //     console.log('Logged in.');
+  //   } else {
+  //     delete axios.defaults.headers.common["Authorization"];
+  //     console.log('Invalid email or password.');
+  //   }
+  //   // window.location.href = '/';
+  //   router.push("/dashboard");
+  // })
+  // .catch(err => console.log(err));
+
+};
+
 </script>

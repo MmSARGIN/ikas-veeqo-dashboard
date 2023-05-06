@@ -1,21 +1,33 @@
 <template>
   <div>
-    <div class="flex w-full  justify-between items-center ">
-    <Breadcrumb breadcrumb="" />
-    <!--Banner get you to github repo-->
-    <Banner />
-    <div class="flex justify-end">
-      <button class="flex items-center justify-between bg-indigo-600 px-6 shadow-xl py-2 border font-semibold text-md text-white rounded-tr-3xl rounded-bl-3xl hover:bg-indigo-700">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-4">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-</svg>
+    <div class="flex w-full justify-between items-center">
+      <Breadcrumb breadcrumb="" />
+      <!--Banner get you to github repo-->
+      <Banner />
+      <div class="flex justify-end">
+        <button
+          @click="updateStocks"
+          class="flex items-center justify-between bg-indigo-600 px-6 shadow-xl py-2 border font-semibold text-md text-white rounded-tr-3xl rounded-bl-3xl hover:bg-indigo-700"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 mr-4"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+            />
+          </svg>
 
-
-        Update Stocks
-      </button>
-      
+          Update Stocks
+        </button>
+      </div>
     </div>
-  </div>
     <!-- <div class="mt-4">
       <div class="flex flex-wrap -mx-6">
         <div class="w-full px-6 sm:w-1/2 xl:w-1/3">
@@ -132,130 +144,69 @@
     </div> -->
 
     <div class="mt-8"></div>
-
+    Success: {{ logs.success }}
     <div class="flex flex-col mt-8">
       <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
         <div
-          class="
-            inline-block
-            min-w-full
-            overflow-hidden
-            align-middle
-            border-b border-gray-200
-            shadow
-            sm:rounded-lg
-          "
+          class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg"
         >
           <table class="min-w-full">
             <thead>
               <tr>
                 <th
-                  class="
-                    px-6
-                    py-3
-                    text-xs
-                    font-medium
-                    leading-4
-                    tracking-wider
-                    text-left text-gray-500
-                    uppercase
-                    border-b border-gray-200
-                    bg-gray-50
-                  "
+                  class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50"
                 >
                   Date
                 </th>
                 <th
-                  class="
-                    px-6
-                    py-3
-                    text-xs
-                    font-medium
-                    leading-4
-                    tracking-wider
-                    text-left text-gray-500
-                    uppercase
-                    border-b border-gray-200
-                    bg-gray-50
-                  "
-                >
-                  Action
-                </th>
-                <th
-                  class="
-                    px-6
-                    py-3
-                    text-xs
-                    font-medium
-                    leading-4
-                    tracking-wider
-                    text-left text-gray-500
-                    uppercase
-                    border-b border-gray-200
-                    bg-gray-50
-                  "
-                >
-                Action Type
-                </th>
-                <th
-                  class="
-                    px-6
-                    py-3
-                    text-xs
-                    font-medium
-                    leading-4
-                    tracking-wider
-                    text-left text-gray-500
-                    uppercase
-                    border-b border-gray-200
-                    bg-gray-50
-                  "
+                  class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50"
                 >
                   Item
                 </th>
                 <th
-                  class="
-                    px-6
-                    py-3
-                    text-xs
-                    font-medium
-                    leading-4
-                    tracking-wider
-                    text-left text-gray-500
-                    uppercase
-                    border-b border-gray-200
-                    bg-gray-50
-                  "
+                  class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50"
                 >
-                 To
+                  Action
+                </th>
+                <th
+                  class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50"
+                >
+                  Stock
+                </th>
+                <th
+                  class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50"
+                >
+                  Message
+                </th>
+                <th
+                  class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50"
+                >
+                  Success
                 </th>
                 <!-- <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th> -->
               </tr>
             </thead>
 
             <tbody class="bg-white">
-              <tr  v-for="(u, index) in users" :key="index">
+              <tr v-for="(log,id) in logs.data" :key="id">
                 <td
                   class="px-4 py-2 border-b border-gray-200 whitespace-nowrap"
                 >
                   <div class="flex items-center w-full">
-                    
-
-                    
-                      <div class="text-sm font-medium leading-5 text-gray-900">
-                        {{ u.name }}
-                      </div>
-                      <!-- <div class="text-sm leading-5 text-gray-500">
+                    <div class="text-sm font-medium leading-5 text-gray-900">
+                      {{ log.created_at }}
+                    </div>
+                    <!-- <div class="text-sm leading-5 text-gray-500">
                         {{ u.email }}
                       </div> -->
-                    </div>
-                 
+                  </div>
                 </td>
 
                 <td
-                  class="px-4 py-2 border-b border-gray-200 whitespace-nowrap">
+                  class="px-4 py-2 border-b border-gray-200 whitespace-nowrap"
+                >
                   <div class="text-sm leading-5 text-gray-900">
-                    {{ u.title }}
+                    {{ log?.data?.sku }}
                   </div>
                   <!-- <div class="text-sm leading-5 text-gray-500">
                     {{ u.title2 }}
@@ -263,45 +214,32 @@
                 </td>
 
                 <td
-                  class="px-4 py-2 border-b border-gray-200 whitespace-nowrap">
+                  class="px-4 py-2 border-b border-gray-200 whitespace-nowrap"
+                >
                   <span
-                    class="
-                      inline-flex
-                      px-4
-                      text-xs
-                      font-semibold
-                      leading-5
-                      text-green-800
-                      bg-green-100
-                      rounded-full
-                    "
-                    >{{ u.status }}</span
+                    class="inline-flex px-4 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full"
+                    >
+                    {{ log.type }}
+                    </span
                   >
                 </td>
 
                 <td
-                  class="
-                  px-4 py-2
-                    text-sm
-                    leading-5
-                    text-gray-500
-                    border-b border-gray-200
-                    whitespace-nowrap
-                  "
+                  class="px-4 py-2 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap"
                 >
-                  {{ u.role }}
+                  {{ log?.data?.stock }}
                 </td>
                 <td
-                  class="
-                  px-4 py-2
-                    text-sm
-                    leading-5
-                    text-gray-500
-                    border-b border-gray-200
-                    whitespace-nowrap
-                  "
+                  class="px-4 py-2 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap"
                 >
-                  Lorem
+                {{ log?.data?.error_message }}
+
+                </td>
+                <td
+                  class="px-4 py-2 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap"
+                >
+                {{ log?.success }}
+
                 </td>
 
                 <!-- <td
@@ -359,31 +297,197 @@
           </table>
         </div>
       </div>
+      <div class="flex justify-end align-middle mt-3 pr-3">{{ logs?.pagination.total }}
+      <div
+        class="pagination inline-flex items-center justify-center rounded bg-blue-600 py-1 text-white"
+      >
+        <a
+        @click="fetchLogs(page > 1 ? page-- : page)"
+          href="#"
+          class="inline-flex h-8 w-8 items-center justify-center rtl:rotate-180"
+        >
+          <span class="sr-only">Prev Page</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-3 w-3"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </a>
+
+        <!-- <span class="h-4 w-px bg-white/25" aria-hidden="true"></span> -->
+
+        <!-- <div>
+          <label for="PaginationPage" class="sr-only">Page</label>
+
+          <span
+            class="h-8 w-12 rounded border-none bg-transparent p-0 text-center text-md font-medium [-moz-appearance:_textfield] focus:outline-none focus:ring-inset focus:ring-white [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+            
+            id="PaginationPage">
+          {{page}}
+          </span>
+          
+        </div> -->
+
+        <span class="h-4 w-px bg-white/25"></span>
+
+        <a
+          @click="fetchLogs(page++)"
+          href="#"
+          class="inline-flex h-8 w-8 items-center justify-center rtl:rotate-180"
+        >
+          <span class="sr-only">Next Page</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-3 w-3"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </a>
+      </div>
+
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted, reactive } from "vue";
 import Banner from "../partials/Banner.vue";
 import Breadcrumb from "../partials/Breadcrumb.vue";
-interface User {
-  name: string;
-  email: string;
-  title: string;
-  title2: string;
-  status: string;
-  role: string;
+import { useRouter } from "vue-router";
+const router = useRouter();
+
+// interface User {
+//   name: string;
+//   email: string;
+//   title: string;
+//   title2: string;
+//   status: string;
+//   role: string;
+// }
+
+// const testUser: User = {
+//   name: "John Doe",
+//   email: "john@example.com",
+//   title: "Software Engineer",
+//   title2: "Web dev",
+//   status: "Active",
+//   role: "Owner",
+// };
+
+// const users = ref<User[]>([...Array(10).keys()].map(() => testUser));
+
+interface Log {
+  id: string,
+  type: string
+  data: {
+    sku: string,
+    stock: number,
+    sellable_id: number,
+    product_id: number,
+    product_title: string,
+    sellable_title: string,
+    sellable_full_title: string,
+    error_message: string
+  },
+  success: boolean,
+  created_at: string,
+}
+interface Logs {
+  data: [Log],
+  success: boolean,
+  pagination: {
+    total: number
+  }
+}
+const logs: Logs = reactive({
+  data: [
+    {
+      "id": "",
+      "type": "",
+      "data": {
+        "sku": "",
+        "stock": 0,
+        "sellable_id": 0,
+        "product_id": 0,
+        "product_title": "",
+        "sellable_title": "",
+        "sellable_full_title": "",
+        "error_message": ""
+      },
+      "success": false,
+      "created_at": "2000-01-01T00:00:00.000000Z"
+    }
+  ],
+  success: false,
+  pagination: {
+    total: 0
+  }
+})
+
+const page = 1;
+
+onMounted(() => {
+  fetchLogs(page);
+  // setInterval(() => {fetchLogs(page);}, 3000)
+})
+
+async function fetchLogs(page: number): Promise<void> {
+  const API_URL = 'http://sirri.fthyuksel.com/api/v1';
+  console.log(API_URL);
+  const token = localStorage.getItem("token");
+
+  const url = API_URL + "/logs" + "?page=" + page + "&limit=20";
+  const options = {
+    method: "GET",
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json;charset=UTF-8",
+      "Authorization": "Bearer " + token
+    },
+  };
+
+  fetch(url, options)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log('data fetch: ', data);
+    logs.data = data?.data;
+    logs.success = data?.success;
+    logs.pagination = data?.pagination
+  })
 }
 
-const testUser: User = {
-  name: "John Doe",
-  email: "john@example.com",
-  title: "Software Engineer",
-  title2: "Web dev",
-  status: "Active",
-  role: "Owner",
-};
+async function updateStocks(): Promise<void> {
+  console.log("stocks page opened.");
+  router.push("/stocks");
+}
 
-const users = ref<User[]>([...Array(10).keys()].map(() => testUser));
+// http://sirri.fthyuksel.com/api/v1/logs/
+// Bearer 4|xvuFHl1aVWXeuEE21NiYu5FER0vimuBlvH8eb585
+// GET
+// {
+//   "success": true,
+//   "data":[],
+//   "pagination":{
+//     "total": 0,
+//     "perPage": 15,
+//     "currentPage": 1,
+//     "lastPage": 1,
+//     "from": null,
+//     "to": null
+//   }
+// }
 </script>
