@@ -111,7 +111,7 @@
 
 <script setup>
 import { useRouter } from "vue-router";
-import axios from 'axios';
+// import axios from 'axios';
 
 const router = useRouter();
 
@@ -120,8 +120,7 @@ const handleSubmit = (email, password) => {
     email: email,
     password: password
   }
-  const API_URL='http://sirri.fthyuksel.com/api/v1'
-  console.log(API_URL)
+  const API_URL = process.env.VUE_APP_API_URL;
 
   const url = API_URL + "/login";
   const options = {
@@ -135,13 +134,13 @@ const handleSubmit = (email, password) => {
   fetch(url, options)
   .then((response) => response.json())
   .then((data) => {
-    console.log('data fetch: ', data?.data?.access_token);
+    // console.log('data fetch: ', data?.data?.access_token);
     const token = data?.data?.access_token;
-    console.log('token: ', token)
+    // console.log('token: ', token)
     if (token) {
       localStorage.setItem("token", token);
       // axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      console.log('Logged in.');
+      // console.log('Logged in.');
     } else {
       // delete axios.defaults.headers.common["Authorization"];
       console.log('Invalid email or password.');

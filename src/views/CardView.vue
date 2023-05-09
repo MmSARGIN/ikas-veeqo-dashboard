@@ -19,10 +19,6 @@
        
       </div>
 
-      {{ skuList.split('\n').join(', ') }}
-      <span v-show="success"><br> Success: {{ success }} </span>
-
-
       <div class="teal-500 flex flex-col justify-center items-center">
         <div>
           <textarea
@@ -81,12 +77,11 @@ let skuListToUpdate = computed(() => skuList.value.split('\n'));
 // });
 
 async function updateSelected(): Promise<void> {
-  console.log('updateSelected: ', skuListToUpdate)
-  confirm('Are you sure that ??? You can`t turn back !!!')
-  console.log('update selected stocks started.')
+  // console.log('updateSelected: ', skuListToUpdate)
+  // confirm('Are you sure that ??? You can`t turn back !!!')
+  // console.log('update selected stocks started.')
 
-  const API_URL = 'http://sirri.fthyuksel.com/api/v1';
-  console.log(API_URL);
+  const API_URL = process.env.VUE_APP_API_URL;
   const token = localStorage.getItem("token");
 
   const url = API_URL + "/ikas/update-stocks-from-veeqo-by-sku";
@@ -103,7 +98,7 @@ async function updateSelected(): Promise<void> {
   fetch(url, options)
   .then((response) => response.json())
   .then((data) => {
-    console.log('updateSelected(): ', data);
+    // console.log('updateSelected(): ', data);
     // success.value = data.success;
     // success.value = true;
     // constants.data = data?.data.sort((a: any, b: any) => a.id.localeCompare(b.id));

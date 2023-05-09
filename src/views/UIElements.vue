@@ -12,8 +12,6 @@
             sm:rounded-lg
           "
         >
-        Success: {{ constants.success }}
-        <span v-show="constants.message"><br> Message: {{ constants.message }} </span>
           <table class="min-w-full bg-white">
             <thead class="w-full">
               <tr class="w-full">
@@ -52,7 +50,7 @@
                   Value
                 </th>
                 
-               
+                
               </tr>
             </thead>
 
@@ -66,12 +64,12 @@
                       <div class="text-sm font-medium leading-5 text-gray-900">
                         {{ u.key }}
                       </div>
-                   
+                    
                     </div>
-                 
+                  
                 </td>
 
-               
+                
 
                 <td class="px-4 py-2  whitespace-nowrap ">
                   <span class="">
@@ -81,11 +79,11 @@
 
               
                 
-  
+
           <td
                   class="
                   px-4
-                   
+                    
                   "
                 >
                 <button class="w-full bg-emerald-500 px-6 py-2 hover:bg-emerald-600 rounded-xl text-white" @click="updateConstant(id+1)">Save</button>
@@ -185,8 +183,7 @@ onMounted(async () => {
 
 
 async function fetchConstants(): Promise<void> {
-  const API_URL = 'http://sirri.fthyuksel.com/api/v1';
-  console.log(API_URL);
+  const API_URL = process.env.VUE_APP_API_URL;
   const token = localStorage.getItem("token");
 
   const url = API_URL + "/constants";
@@ -202,7 +199,6 @@ async function fetchConstants(): Promise<void> {
   fetch(url, options)
   .then((response) => response.json())
   .then((data) => {
-    console.log('data fetch: ', data);
     // constants.data = data?.data.sort((a: any, b: any) => a.id.localeCompare(b.id));
     constants.data = data?.data.sort((a: any, b: any) => { return a.id - b.id});
     constants.success = data?.success;
@@ -212,10 +208,9 @@ async function fetchConstants(): Promise<void> {
 
 
 async function updateConstant(id: number): Promise<void> {
-  const API_URL = 'http://sirri.fthyuksel.com/api/v1';
-  console.log(API_URL);
+  const API_URL = process.env.VUE_APP_API_URL;
   const token = localStorage.getItem("token");
-  console.log('constant update: ', constants.data[id-1])
+  // console.log('constant update: ', constants.data[id-1])
 
   const url = API_URL + "/constants/" + id;
   const options = {
@@ -231,7 +226,6 @@ async function updateConstant(id: number): Promise<void> {
   fetch(url, options)
   .then((response) => response.json())
   .then((data) => {
-    console.log('data fetch: ', data);
     constants.message = data?.message;
     async function timedf(cons: any): Promise<void> {
       setTimeout(() => {cons.message = null}, 1500)

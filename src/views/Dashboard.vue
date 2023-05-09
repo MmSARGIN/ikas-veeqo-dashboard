@@ -144,7 +144,7 @@
     </div> -->
 
     <div class="mt-8"></div>
-    Success: {{ logs.success }}
+    
     <div class="flex flex-col mt-8">
       <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
         <div
@@ -446,8 +446,8 @@ onMounted(() => {
 })
 
 async function fetchLogs(page: number): Promise<void> {
-  const API_URL = 'http://sirri.fthyuksel.com/api/v1';
-  console.log(API_URL);
+  const API_URL = process.env.VUE_APP_API_URL;
+
   const token = localStorage.getItem("token");
 
   const url = API_URL + "/logs" + "?page=" + page + "&limit=20";
@@ -463,7 +463,7 @@ async function fetchLogs(page: number): Promise<void> {
   fetch(url, options)
   .then((response) => response.json())
   .then((data) => {
-    console.log('data fetch: ', data);
+    // console.log('data fetch: ', data);
     logs.data = data?.data;
     logs.success = data?.success;
     logs.pagination = data?.pagination
@@ -471,7 +471,7 @@ async function fetchLogs(page: number): Promise<void> {
 }
 
 async function updateStocks(): Promise<void> {
-  console.log("stocks page opened.");
+  // console.log("stocks page opened.");
   router.push("/stocks");
 }
 

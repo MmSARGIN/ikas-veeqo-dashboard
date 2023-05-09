@@ -313,8 +313,7 @@ onMounted(() => {
 })
 
 async function me(): Promise<void> {
-  const API_URL = 'http://sirri.fthyuksel.com/api/v1';
-  console.log(API_URL);
+  const API_URL = process.env.VUE_APP_API_URL;
   const token = localStorage.getItem("token");
 
   const url = API_URL + "/me";
@@ -335,8 +334,7 @@ async function me(): Promise<void> {
 }
 
 async function logout(): Promise<void> {
-  const API_URL = 'http://sirri.fthyuksel.com/api/v1';
-  console.log(API_URL);
+  const API_URL = process.env.VUE_APP_API_URL;
   const token = localStorage.getItem("token");
 
   const url = API_URL + "/logout";
@@ -352,9 +350,7 @@ async function logout(): Promise<void> {
   fetch(url, options)
   .then((response) => response.json())
   .then((data) => {
-    console.log('data fetch: ', data);
     localStorage.removeItem("token");
-    console.log('token removed.');
     router.push('/')
   })
 }
